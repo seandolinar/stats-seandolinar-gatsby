@@ -7,8 +7,9 @@ class PostThumbnail extends React.Component {
   }
  
   render() {
-      return <Link to={'/' + this.props.slug}><div><h4 dangerouslySetInnerHTML={{ __html: this.props.title }} /> 
-      <img src={this.props.imgUrl} /> 
+      return <Link to={'/' + this.props.slug}><div className="post-thumbnail grid-item">
+      <img src={this.props.imgUrl} />
+      <h4 className="post-thumbnail-title" dangerouslySetInnerHTML={{ __html: this.props.title }} /> 
     </div></Link>
   }
 }

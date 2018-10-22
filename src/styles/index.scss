@@ -1,0 +1,48 @@
+@import './mixins';
+
+.page-index {
+    &.grid-wrapper {
+        // demo from web
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1em;
+        grid-auto-rows: minmax(100px, auto);
+    }
+
+    a {
+        text-decoration: none;
+        .post-thumbnail {
+            position: relative;
+            background-color: #fff;
+            height: 100%;
+            max-height: 200px;
+            overflow: hidden;
+            border: .75em solid #fff;
+            transition: 200ms border ease-in-out, 200ms transform ease-in-out;
+
+            &:hover {
+                // @include med-box-shadow;
+                border: .75em solid #80B2E6;
+                transform: scale(1.04);
+            }
+
+            img {
+                margin: 0;
+                overflow: hidden;
+            }
+
+            .post-thumbnail-title {
+                position: absolute;
+                color: #000;
+                font-weight: 400;
+                bottom: 0;
+                margin: 0;
+                color: #fff;
+                background-color: rgba(0,0,0,.75);
+                padding: 1em;
+                width: 100%;
+            }
+        }
+        
+    }
+}
