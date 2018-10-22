@@ -97,6 +97,8 @@ exports.createPages = ({ graphql, actions }) => {
             reject(result.errors)
           }
           const postTemplate = path.resolve("./src/templates/post.js")
+          // this programmatically creates a page
+          // if I want to create a home...I wouldn't need to do this.
           // We want to create a detailed page for each
           // post node. We'll just use the WordPress Slug for the slug.
           // The Post ID is prefixed with 'POST_'

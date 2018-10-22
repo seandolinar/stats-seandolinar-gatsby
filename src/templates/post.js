@@ -3,9 +3,13 @@ import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 // import PostIcons from "../components/PostIcons"
 // import Img from "gatsby-image"
-// import Layout from "../layouts"
+import Layout from "../components/layout"
+import Header from '../components/header';
 
 // import { rhythm } from "../utils/typography"
+
+import '../styles/post.scss'
+
 
 class PostTemplate extends Component {
   render() {
@@ -13,12 +17,11 @@ class PostTemplate extends Component {
     const post = this.props.data.wordpressPost
 
     return (
-        <>
-            <div>hello</div>
+        <Layout>
             <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
             {/* <PostIcons node={post} css={{ marginBottom: rhythm(1 / 2) }} /> */}
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
-        </>
+        </Layout>
     )
   }
 }

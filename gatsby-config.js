@@ -3,6 +3,7 @@ module.exports = {
     title: 'Gatsby Default Starter',
   },
   plugins: [
+    'gatsby-plugin-sass',
     'gatsby-plugin-react-helmet',
     {
       resolve: `gatsby-plugin-manifest`,
@@ -13,7 +14,7 @@ module.exports = {
         background_color: '#663399',
         theme_color: '#663399',
         display: 'minimal-ui',
-        icon: 'src/images/gatsby-icon.png', // This path is relative to the root of the site.
+        icon: 'src/images/favicon.png', // This path is relative to the root of the site.
       },
     },
     'gatsby-plugin-offline',
@@ -85,7 +86,7 @@ module.exports = {
           "/*/*/categories",
           "/*/*/posts",
           "/*/*/pages",
-          // "/*/*/media",
+          "/*/*/media", //media takes a long time
           "/*/*/tags",
           "/*/*/taxonomies",
           "/*/*/users",
