@@ -63,7 +63,7 @@ module.exports = {
         },
         // Set verboseOutput to true to display a verbose output on `npm run develop` or `npm run build`
         // It can help you debug specific API Endpoints problems.
-        verboseOutput: false,
+        verboseOutput: true,
         // Set how many pages are retrieved per API request.
         perPage: 100,
         // Search and Replace Urls across WordPress content.
@@ -72,7 +72,7 @@ module.exports = {
           replacementUrl: "https://replacement-url.com",
         },
         // Set how many simultaneous requests are sent at once.
-        concurrentRequests: 10,
+        concurrentRequests: 100,
         // Set WP REST API routes whitelists
         // and blacklists using glob patterns.
         // Defaults to whitelist the routes shown
@@ -92,7 +92,10 @@ module.exports = {
           "/*/*/users",
         ],
         // Blacklisted routes using glob patterns
-        excludedRoutes: ["/*/*/posts/1456"],
+        excludedRoutes: [
+          "/*/*/posts/1456",
+          // "/*/*/media"
+        ],
         // use a custom normalizer which is applied after the built-in ones.
         normalizer: function({ entities }) {
           return entities

@@ -1,34 +1,23 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from 'react';
+import { Link } from 'gatsby';
 
-import Layout from '../components/layout'
+import Layout from '../components/layout';
+import PostThumbnail from '../components/PostThumbnail';
+
 
 const IndexPage = (props) => {
-  console.log(props.data.allWordpressPost.edges);
+
   const data = props.data.allWordpressPost.edges;
 
   const postItems = data.filter((d,i) => {
     d = d.node
-    return d._links && d._links.wp_featuredmedia && d._links.wp_featuredmedia.length > 0 && i < 24;
+    console.log(d)
+    return d.featured_media && d.featured_media.guid && d.featured_media.guid.length > 0 && i < 24;
   }).map(d => {
-  
-    fetch(d.node._links.wp_featuredmedia[0].href,{mode: 'no-cors'}) //{mode: 'no-cors'}
-    .then(res => {
-      // res.json()
-      res.json().then(json => {
-        console.log(json)
-         
-        return <div>
-        <h4 dangerouslySetInnerHTML={{ __html: d.node.title }} /> 
-          {/* <img src={json.guid.rendered} />  */}
-        </div>
-      }).catch(err => { return 'err'})
-  }).catch(err => { return 'err'})
-  
-    
+    const {node: {title, featured_media, slug}} = d;
+    return <PostThumbnail title={title} slug={slug} imgUrl={featured_media.guid} />;
   })
 
-  console.log(postItems)
 
   return (
   <Layout>
@@ -51,15 +40,10 @@ query {
         id
         title,
         slug,
-        _links {
-          wp_featuredmedia {
-            embeddable,
-            href
-          }
+        featured_media {
+          guid
         }
-        
-      }
-      
+      }   
     }
   }
 }`
