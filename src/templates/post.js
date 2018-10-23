@@ -8,8 +8,8 @@ import Header from '../components/header';
 
 // import { rhythm } from "../utils/typography"
 
-import '../styles/post.scss'
-
+import '../styles/post.scss';
+import '../styles/crayon.css';
 
 class PostTemplate extends Component {
   render() {
@@ -25,6 +25,7 @@ class PostTemplate extends Component {
             <time class="entry-date" dateTime={post.date}>{entryDate.toLocaleString('en-us', { month: 'long' , day: 'numeric', year: 'numeric'})}</time>
             {/* <PostIcons node={post} css={{ marginBottom: rhythm(1 / 2) }} /> */}
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
+            <script async src="//platform.twitter.com/widgets.js" charSet="utf-8"></script>
         </Layout>
     )
   }
