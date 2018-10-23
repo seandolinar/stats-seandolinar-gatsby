@@ -15,10 +15,13 @@ class PostTemplate extends Component {
   render() {
       console.log(this.props)
     const post = this.props.data.wordpressPost
+    const entryDate = new Date(post.date)
+    console.log(entryDate)
 
     return (
-        <Layout>
+        <Layout pageType="post">
             <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
+            <time class="entry-date" dateTime={post.date}>{entryDate.toLocaleString('en-us', { month: 'long' , day: 'numeric', year: 'numeric'})}</time>
             {/* <PostIcons node={post} css={{ marginBottom: rhythm(1 / 2) }} /> */}
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
         </Layout>
@@ -36,8 +39,9 @@ export default PostTemplate
 export const pageQuery = graphql`
   query($id: String!) {
     wordpressPost(id: { eq: $id }) {
-      title
-      content
+      title,
+      content,
+      date
     }
     site {
       siteMetadata {

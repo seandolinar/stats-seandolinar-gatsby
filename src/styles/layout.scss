@@ -2,6 +2,10 @@ body {
     background-color: #303030;
 }
 
+iframe {
+    border: 0;
+}
+
 .site-header {
     line-height: 0;
     display: block;
@@ -15,4 +19,12 @@ body {
 .site-content {
     background-color: #303030;
     max-width: 1000px;
+    margin: auto;
+    padding: 1em;
+
+    &.post {
+        margin-top: 1em;
+        background-color: #fff;
+        padding: 1em 5em;
+    }
 }

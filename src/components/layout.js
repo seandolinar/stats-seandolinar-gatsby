@@ -7,7 +7,7 @@ import Header from './header';
 import './layout.css';
 import '../styles/layout.scss';
 
-const Layout = ({ children }) => (
+const Layout = ({ children, pageType }) => (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -32,11 +32,11 @@ const Layout = ({ children }) => (
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
         <div
-          className="site-content"
+          className={'site-content ' + pageType}
           style={{
-            margin: '0 auto',
+            // margin: '0 auto',
             // maxWidth: 960,
-            padding: '1em',
+            // padding: '1em',
             // paddingTop: 0,
           }}
         >
