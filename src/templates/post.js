@@ -21,6 +21,7 @@ class PostTemplate extends Component {
     return (
         <Layout pageType="post">
             <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
+            <span>📅</span>
             <time class="entry-date" dateTime={post.date}>{entryDate.toLocaleString('en-us', { month: 'long' , day: 'numeric', year: 'numeric'})}</time>
             {/* <PostIcons node={post} css={{ marginBottom: rhythm(1 / 2) }} /> */}
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
