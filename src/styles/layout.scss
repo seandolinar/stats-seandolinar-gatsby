@@ -1,9 +1,24 @@
+@import './variables';
+@import './mixins';
+
 body {
-    background-color: #303030;
 }
 
 iframe {
     border: 0;
+}
+
+.site-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.site-content-wrapper {
+    @include med-box-shadow();
+    background-color: $color-background;
+    padding-bottom: 3em;
+    flex: 1;
 }
 
 .site-header {
@@ -17,7 +32,7 @@ iframe {
 
 
 .site-content {
-    background-color: #303030;
+    background-color: $color-background;
     max-width: 1000px;
     margin: auto;
     padding: 1em;
@@ -26,5 +41,29 @@ iframe {
         margin-top: 1em;
         background-color: #fff;
         padding: 1em 5em;
+    }
+
+}
+
+
+footer {
+
+    background-color: $color-light;
+    text-align: right;
+    padding: 6.25rem 1.25rem 1.25rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: -10;
+
+
+    .footer-content {
+        position: fixed;
+        bottom: 1.25rem;
+        right: 1.25rem;
+        z-index: -1;
+        text-align: right;
+        width: 100%;
     }
 }

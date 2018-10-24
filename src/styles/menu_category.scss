@@ -1,0 +1,43 @@
+@import './variables.scss';
+
+.menu-category {
+
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-gap: 1em;
+    max-width: 1000px;
+    margin: auto;
+    // grid-auto-rows: minmax(100px, auto);
+
+
+    a {
+        display: block;
+        text-decoration: none;
+        color: #fff;
+        text-align: center;
+        padding: .6em 0;
+        transition: 300ms background-color, 300ms border;
+        // border: 3px solid $color-background;
+
+        &:after {
+            content: '';
+            display: block;
+            border-bottom: 2px solid #fff;
+            padding: .2em 0;
+            margin: auto;
+            transition: 300ms width, 300ms border;
+            width: 0;
+        }
+
+        &:hover, &.isActive {
+            // background-color: #fff;
+            // border: 3px solid $color-light;
+            // color: #000;
+
+            &:after {
+                width: 80%;
+                border-bottom: 2px solid $color-light;
+            }
+        }
+    }
+}

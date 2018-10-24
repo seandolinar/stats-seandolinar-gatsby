@@ -12,11 +12,14 @@ const IndexPage = (props) => {
 
   const postItems = data.filter((d,i) => {
     d = d.node
-    console.log(d)
-    return d.featured_media && d.featured_media.guid && d.featured_media.guid.length > 0 && i < 24;
+    return d.featured_media && d.featured_media.source_url && d.featured_media.source_url.length > 0 && i < 24;
   }).map(d => {
     const {node: {title, featured_media, slug}} = d;
-    return <PostThumbnail title={title} slug={slug} imgUrl={featured_media.guid} />;
+    return <PostThumbnail 
+      title={title} 
+      slug={slug} 
+      imgUrl={featured_media.source_url} 
+      />;
   })
 
 
@@ -41,9 +44,15 @@ query {
         title,
         slug,
         featured_media {
-          guid
+          source_url
         }
       }   
     }
   }
 }`
+
+
+
+// featured_media {
+//   guid
+// }

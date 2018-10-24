@@ -3,3 +3,16 @@
 body {
     font-family: $font-family-primary;
 }
+
+.site-content.post {
+    padding-top: 2.2em; 
+
+    .post-timestamp {
+        margin: 1em 0;
+        color: #555;
+
+        time {
+            margin-left: .5em;
+        }
+    }
+}

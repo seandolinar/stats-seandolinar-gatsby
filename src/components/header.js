@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import MenuCategory from './MenuCategory';
 
-const Header = ({ siteTitle }) => (
-  <Link
+const Header = ({ siteTitle }) => {
+  return (
+  <><Link
   className="site-header"
   to="/"
   style={{
@@ -15,7 +17,9 @@ const Header = ({ siteTitle }) => (
       style={{width: '100%'}}
     />
     </Link>
-
+    <MenuCategory />
+</>
 )
+}
 
 export default Header

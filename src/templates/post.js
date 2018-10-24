@@ -21,9 +21,10 @@ class PostTemplate extends Component {
     return (
         <Layout pageType="post">
             <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
-            <span>📅</span>
-            <time class="entry-date" dateTime={post.date}>{entryDate.toLocaleString('en-us', { month: 'long' , day: 'numeric', year: 'numeric'})}</time>
-            {/* <PostIcons node={post} css={{ marginBottom: rhythm(1 / 2) }} /> */}
+            <div className="post-timestamp">
+              <span>📅</span>
+              <time className="entry-date" dateTime={post.date}>{entryDate.toLocaleString('en-us', { month: 'long' , day: 'numeric', year: 'numeric'})}</time>
+            </div>    
             <div dangerouslySetInnerHTML={{ __html: post.content }} />
             <script async src="//platform.twitter.com/widgets.js" charSet="utf-8"></script>
         </Layout>

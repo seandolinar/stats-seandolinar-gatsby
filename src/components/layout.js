@@ -19,7 +19,8 @@ const Layout = ({ children, pageType }) => (
       }
     `}
     render={data => (
-      <>
+      <div className="site-wrapper">
+      <div className="site-content-wrapper">
         <Helmet
           title={data.site.siteMetadata.title}
           meta={[
@@ -31,7 +32,7 @@ const Layout = ({ children, pageType }) => (
           <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet" />
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <div
+        <main
           className={'site-content ' + pageType}
           style={{
             // margin: '0 auto',
@@ -41,8 +42,14 @@ const Layout = ({ children, pageType }) => (
           }}
         >
           {children}
+        </main>
         </div>
-      </>
+        <footer>
+          <div className="footer-content">
+            @seandolinar
+          </div>
+        </footer>
+      </div>
     )}
   />
 );

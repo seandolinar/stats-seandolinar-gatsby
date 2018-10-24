@@ -1,0 +1,88 @@
+@import './variables';
+@import './mixins';
+@import './animations';
+
+.site-content.category {
+    // background-color: #fff;
+    display: grid;
+        grid-template-columns: 312px auto;
+        grid-gap: 1em;
+        grid-auto-rows: minmax(100px, auto);
+
+  
+    .post-thumbnail {
+        position: relative;
+        background-color: #fff;
+        // height: 100%;
+        width: 312px;
+        height: 200px;
+        overflow: hidden;
+        border: .75em solid #fff;
+        transition: 200ms border ease-in-out, 200ms transform ease-in-out;
+
+        animation-name: fadeUp, moveUp;
+        animation-duration: 600ms, 400ms;
+        animation-timing-function: ease-in-out, ease-in-out;
+        animation-fill-mode: forwards;  
+        opacity: 0;
+                
+        &:hover {
+            // @include med-box-shadow;
+            border: .75em solid $color-light;
+            transform: scale(1.04);
+        }
+    
+        img {
+            margin: 0;
+            overflow: hidden;
+        }
+
+        
+    
+        .post-thumbnail-title {
+            position: absolute;
+            color: #000;
+            font-weight: 400;
+            bottom: 0;
+            margin: 0;
+            color: #fff;
+            background-color: rgba(0,0,0,.75);
+            padding: 1em;
+            width: 100%;
+        }
+    }
+
+    a, .category-item-copy {
+        @for $i from 1 through 24 {
+               
+            &:nth-child(#{$i}) {
+                // animation-delay: #{($i * 1000)}ms;
+                // visibility: hidden;
+                // margin: ;
+                animation-delay: #{($i * 26)}ms, #{($i * 30)}ms;
+
+                .post-thumbnail {
+                    animation-delay: #{($i * 26)}ms, #{($i * 30)}ms;
+                }
+            }
+         }
+    }
+
+
+
+    .category-item-copy {
+        background-color: #fff;
+        height: 200px;
+        display: flex;
+        padding: 0 1.4em;
+        align-content: center;
+        align-items: center;
+
+        animation-name: fadeUp, moveUp;
+        animation-timing-function: ease-in-out, ease-in-out;
+        animation-duration: 600ms, 400ms;
+        animation-fill-mode: forwards;  
+        opacity: 0;
+    }
+}
+

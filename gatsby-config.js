@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'stats.seandolinar.com',
   },
   plugins: [
     'gatsby-plugin-twitter',
@@ -67,6 +67,7 @@ module.exports = {
         verboseOutput: true,
         // Set how many pages are retrieved per API request.
         perPage: 100,
+        // change this to fix my problem ^
         // Search and Replace Urls across WordPress content.
         searchAndReplaceContentUrls: {
           sourceUrl: "https://source-url.com",
