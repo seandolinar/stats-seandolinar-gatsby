@@ -12,6 +12,9 @@ class CategoryTemplate extends Component {
     const {data: {allWordpressPost}, pageContext: {id}} = this.props;
 
     const postsCategory = allWordpressPost.edges.filter(({node}) => {
+      if (!node.featured_media) {
+        return false
+      }
       if (node.categories.length) {
         return node.categories.reduce((p,c) => {
           return p || c.id === id
