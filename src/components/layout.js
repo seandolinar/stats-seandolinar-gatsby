@@ -26,6 +26,7 @@ const Layout = ({ children, pageType }) => (
           meta={[
             { name: 'description', content: 'Sample' },
             { name: 'keywords', content: 'sample, something' },
+            { name: 'google-site-verification', content: '4zzLgNmIbi66VfwfkRprZoo2eebh52ac6wdyqkWl9Nk'}
           ]}
         >
           <html lang="en" />
