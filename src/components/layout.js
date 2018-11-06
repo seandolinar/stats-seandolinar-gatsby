@@ -31,6 +31,14 @@ const Layout = ({ children, pageType }) => (
         >
           <html lang="en" />
           <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet" />
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <script>{`
+                (adsbygoogle = window.adsbygoogle || []).push({
+                  google_ad_client: "ca-pub-9996180831969957",
+                  enable_page_level_ads: true
+            });
+          `}
+          </script>
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
         <main
