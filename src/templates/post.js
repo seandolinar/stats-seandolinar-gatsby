@@ -12,21 +12,29 @@ import '../styles/post.scss';
 import '../styles/crayon.css';
 
 class PostTemplate extends Component {
-  render() {
-      console.log(this.props)
-    const post = this.props.data.wordpressPost
-    const entryDate = new Date(post.date)
-    console.log(entryDate)
 
+  componentDidMount() {
+      // console.log(document.getElementById('post-content').children)
+      // document.getElementById('post-content').children
+  }
+
+
+  render() {
+
+    const post = this.props.data.wordpressPost;
+    const entryDate = new Date(post.date);
+
+    
     return (
         <Layout pageType="post">
-            <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
-            <div className="post-timestamp">
-              <span>📅</span>
-              <time className="entry-date" dateTime={post.date}>{entryDate.toLocaleString('en-us', { month: 'long' , day: 'numeric', year: 'numeric'})}</time>
-            </div>    
-            <div dangerouslySetInnerHTML={{ __html: post.content }} />
-            <script async src="//platform.twitter.com/widgets.js" charSet="utf-8"></script>
+          <div className="post-wrapper">
+              <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
+              <div className="post-timestamp">
+                <span>📅</span>
+                <time className="entry-date" dateTime={post.date}>{entryDate.toLocaleString('en-us', { month: 'long' , day: 'numeric', year: 'numeric'})}</time>
+              </div>
+              <div id="post-content" dangerouslySetInnerHTML={{ __html: post.content }} />
+            </div>
         </Layout>
     )
   }
@@ -53,3 +61,5 @@ export const pageQuery = graphql`
     }
   }
 `
+
+

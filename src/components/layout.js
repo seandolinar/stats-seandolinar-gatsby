@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
+import AdSense from 'react-adsense';
 
 import Header from './header';
 import './layout.css';
@@ -32,6 +33,7 @@ const Layout = ({ children, pageType }) => (
           <html lang="en" />
           <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet" />
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
           <script>{`
                 (adsbygoogle = window.adsbygoogle || []).push({
                   google_ad_client: "ca-pub-9996180831969957",
@@ -41,6 +43,7 @@ const Layout = ({ children, pageType }) => (
           </script>
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
+        
         <main
           className={'site-content ' + pageType}
           style={{
@@ -50,6 +53,24 @@ const Layout = ({ children, pageType }) => (
             // paddingTop: 0,
           }}
         >
+          <div className="ra-column visible-desktop">
+            <AdSense.Google
+              client='ca-pub-9996180831969957'
+              slot='2589150622'
+              style={{ display: 'block', margin: 'auto' }}
+              format='auto'
+              responsive='true'
+            />
+          </div>
+          <div className="ra-column visible-desktop right">
+            <AdSense.Google
+                client='ca-pub-9996180831969957'
+                slot='9693615028'
+                style={{ display: 'block', margin: 'auto' }}
+                format='auto'
+                responsive='true'
+              />
+          </div>
           {children}
         </main>
         </div>

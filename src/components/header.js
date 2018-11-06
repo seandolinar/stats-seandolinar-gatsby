@@ -1,5 +1,7 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import AdSense from 'react-adsense';
+
 import MenuCategory from './MenuCategory';
 
 const Header = ({ siteTitle }) => {
@@ -17,6 +19,15 @@ const Header = ({ siteTitle }) => {
       style={{width: '100%'}}
     />
     </Link>
+    <div className="ra-menu visible-desktop">
+        <AdSense.Google
+          client='ca-pub-9996180831969957'
+          slot='8635684224'
+          style={{ display: 'block', margin: 'auto' }}
+          format='auto'
+          responsive='true'
+        />
+    </div>
     <MenuCategory />
 </>
 )
