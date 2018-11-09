@@ -56,12 +56,6 @@ const Layout = ({ children, pageType }) => {
         <MenuCategory isMenuMobileOpen={isMenuMobileOpen}/>
         <main
           className={'site-content ' + pageType}
-          style={{
-            // margin: '0 auto',
-            // maxWidth: 960,
-            // padding: '1em',
-            // paddingTop: 0,
-          }}
         >
           <div className="ra-column visible-desktop">
             <ErrorBoundary>
