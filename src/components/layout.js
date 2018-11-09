@@ -19,7 +19,6 @@ setConfig({ pureSFC: true });
 const Layout = ({ children, pageType }) => {
 
   const [isMenuMobileOpen, setMenuOpen] = useState(false);
- console.log(isMenuMobileOpen)
 
   return (
   <StaticQuery
@@ -33,24 +32,9 @@ const Layout = ({ children, pageType }) => {
       }
     `}
     render={data => (
-      // <div className="site-wrapper">
-      //  <Helmet
-      //     title={data.site.siteMetadata.title}
-      //     meta={[
-      //       { name: 'description', content: 'Sample' },
-      //       { name: 'keywords', content: 'sample, something' },
-      //       { name: 'google-site-verification', content: '4zzLgNmIbi66VfwfkRprZoo2eebh52ac6wdyqkWl9Nk'}
-      //     ]}
-      //   >
-      //     <html lang="en" />
-      //     <link href="https://fonts.googleapis.com/css?family=Lato:900" rel="stylesheet" />
-      //     <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet" />
-      //     <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-      //   </Helmet>
-      // <Header siteTitle={data.site.siteMetadata.title} />
-      <>
+      <div>
       <div className="site-header-menu-mobile">
-        <ButtonMenu onClick={() =>  setMenuOpen(!isMenuMobileOpen)} isMenuOpen={isMenuMobileOpen}/>
+        <ButtonMenu onClick={() =>  setMenuOpen(!isMenuMobileOpen)} isMenuOpen={isMenuMobileOpen}></ButtonMenu>
       </div>
       <div className="site-content-wrapper">
         <MenuCategory isMenuMobileOpen={isMenuMobileOpen}/>
@@ -87,8 +71,7 @@ const Layout = ({ children, pageType }) => {
             @seandolinar
           </div>
         </footer>
-        </>
-      // </div>
+        </div>
     )}
     
   />

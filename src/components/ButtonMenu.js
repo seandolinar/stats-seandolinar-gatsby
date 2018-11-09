@@ -1,8 +1,8 @@
 import React from 'react';
 import '../styles/button_menu.scss';
 
-export default (props) => (
-    <div 
+ const ButtonMenu = (props) => (
+    <nav 
         className={'button-menu' + (props.isMenuOpen ? ' is-open' : '')}
         onClick={props.onClick}
     >
@@ -10,5 +10,7 @@ export default (props) => (
         <div></div>
         <div></div>
         <div></div>
-    </div>
+    </nav>
 )
+
+export default ButtonMenu
