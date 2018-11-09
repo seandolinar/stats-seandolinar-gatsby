@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'gatsby'
 import AdSense from 'react-adsense';
 
-import MenuCategory from './MenuCategory';
+// import MenuCategory from './MenuCategory';
 
 const Header = ({ siteTitle }) => {
   return (
@@ -12,6 +12,7 @@ const Header = ({ siteTitle }) => {
   style={{
     color: 'white',
     textDecoration: 'none',
+    zIndex: 1
   }}
 >
     <img 
@@ -19,7 +20,7 @@ const Header = ({ siteTitle }) => {
       style={{width: '100%'}}
     />
     </Link>
-    <div className="ra-menu visible-desktop">
+    {/* <div className="ra-menu visible-desktop">
         <AdSense.Google
           client='ca-pub-9996180831969957'
           slot='8635684224'
@@ -27,8 +28,7 @@ const Header = ({ siteTitle }) => {
           format='auto'
           responsive='true'
         />
-    </div>
-    <MenuCategory />
+    </div> */}
 </>
 )
 }

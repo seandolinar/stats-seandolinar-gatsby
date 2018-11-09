@@ -12,8 +12,18 @@ body {
         padding: 2em 4em;
         margin: 0 70px;
 
+        @media (max-width: 900px) {
+            margin: 0;
+        }
+
         @media (max-width: 640px) {
             padding: 2em 1em;
+            // margin: 0;
+        }
+
+        h1 {
+            font-size: 2rem;
+            line-height: 1.1;
         }
     }
 

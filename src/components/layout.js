@@ -3,12 +3,32 @@ import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
 import AdSense from 'react-adsense';
+import ErrorBoundary from './ErrorBoundary';
 
 import Header from './header';
+import MenuCategory from './MenuCategory';
 import './layout.css';
 import '../styles/layout.scss';
 
-const Layout = ({ children, pageType }) => (
+const Layout = ({ children, pageType }) => {
+
+  const isDisplayAd = window.innerWidth > 900
+
+  // let adLeft = null;
+  // try {
+    // adLeft = <AdSense.Google
+    //     client='ca-pub-9996180831969957'
+    //     slot='2589150622'
+    //     style={{ display: 'block', margin: 'auto' }}
+    //     format='auto'
+    //     responsive='true'
+    //   />
+  // }
+  // catch(e) {
+
+  // }
+
+  return (
   <StaticQuery
     query={graphql`
       query SiteTitleQuery {
@@ -21,8 +41,7 @@ const Layout = ({ children, pageType }) => (
     `}
     render={data => (
       <div className="site-wrapper">
-      <div className="site-content-wrapper">
-        <Helmet
+       <Helmet
           title={data.site.siteMetadata.title}
           meta={[
             { name: 'description', content: 'Sample' },
@@ -34,16 +53,17 @@ const Layout = ({ children, pageType }) => (
           <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet" />
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
-          <script>{`
+          {/* <script>{`
                 (adsbygoogle = window.adsbygoogle || []).push({
                   google_ad_client: "ca-pub-9996180831969957",
                   enable_page_level_ads: true
             });
           `}
-          </script>
+          </script> */}
         </Helmet>
         <Header siteTitle={data.site.siteMetadata.title} />
-        
+      <div className="site-content-wrapper">
+        <MenuCategory />
         <main
           className={'site-content ' + pageType}
           style={{
@@ -54,22 +74,26 @@ const Layout = ({ children, pageType }) => (
           }}
         >
           <div className="ra-column visible-desktop">
-            <AdSense.Google
-              client='ca-pub-9996180831969957'
-              slot='2589150622'
-              style={{ display: 'block', margin: 'auto' }}
-              format='auto'
-              responsive='true'
-            />
+            <ErrorBoundary>
+              <AdSense.Google
+                  client='ca-pub-9996180831969957'
+                  slot='2589150622'
+                  style={{ display: 'block', margin: 'auto' }}
+                  format='auto'
+                  responsive='true'
+              />
+            </ErrorBoundary>  
           </div>
           <div className="ra-column visible-desktop right">
+          <ErrorBoundary>
             <AdSense.Google
                 client='ca-pub-9996180831969957'
                 slot='9693615028'
-                style={{ display: 'block', margin: 'auto' }}
+                style={{ display: (isDisplayAd ? 'block' : 'none'), margin: 'auto' }}
                 format='auto'
                 responsive='true'
               />
+              </ErrorBoundary>
           </div>
           {children}
         </main>
@@ -81,8 +105,9 @@ const Layout = ({ children, pageType }) => (
         </footer>
       </div>
     )}
+    
   />
-);
+);}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
