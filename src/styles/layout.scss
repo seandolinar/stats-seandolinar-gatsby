@@ -213,7 +213,8 @@ iframe {
     &.post {
         // margin-top: 1em;
         // background-color: #fff;
-        max-width: 100%;
+        // max-width: ;
+        width: 100%;
         padding: 1em 5em;
 
         @media (max-width: 640px) {
