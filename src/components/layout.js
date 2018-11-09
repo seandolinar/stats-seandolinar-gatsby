@@ -18,7 +18,7 @@ setConfig({ pureSFC: true });
 
 const Layout = ({ children, pageType }) => {
 
-  const [isMenuMobileOpen, setMenuOpen] = [false, () => {}]//useState(false);
+  const [isMenuMobileOpen, setMenuOpen] = useState(false);
  console.log(isMenuMobileOpen)
 
   return (
