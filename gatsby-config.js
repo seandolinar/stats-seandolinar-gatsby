@@ -20,6 +20,12 @@ module.exports = {
     },
     'gatsby-plugin-offline',
     {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://stats.seandolinar.com`,
+      }
+    },
+    {
       resolve: "gatsby-source-wordpress",
       options: {
         /*
@@ -70,8 +76,8 @@ module.exports = {
         // change this to fix my problem ^
         // Search and Replace Urls across WordPress content.
         searchAndReplaceContentUrls: {
-          sourceUrl: "https://source-url.com",
-          replacementUrl: "https://replacement-url.com",
+          sourceUrl: "http://stats.seandolinar.com",
+          replacementUrl: "https://stats.seandolinar.com",
         },
         // Set how many simultaneous requests are sent at once.
         concurrentRequests: 100,

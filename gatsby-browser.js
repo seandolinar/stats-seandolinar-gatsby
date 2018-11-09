@@ -27,6 +27,7 @@ export const wrapRootElement = ({element}) => <div className="site-wrapper">
    <html lang="en" />
    <link href="https://fonts.googleapis.com/css?family=Lato:900" rel="stylesheet" />
    <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet" />
-   <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+   <link rel="canonical" href="https://stats.seandolinar.com" /> 
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
  </Helmet>
 <Header siteTitle={''} />{element}</div>
