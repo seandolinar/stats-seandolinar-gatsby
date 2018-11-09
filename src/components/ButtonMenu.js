@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/button_menu.scss';
 
  const ButtonMenu = (props) => (
-    <nav 
+    <div 
         className={'button-menu' + (props.isMenuOpen ? ' is-open' : '')}
         onClick={props.onClick}
     >
@@ -10,7 +10,7 @@ import '../styles/button_menu.scss';
         <div></div>
         <div></div>
         <div></div>
-    </nav>
+    </div>
 )
 
 export default ButtonMenu

@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 // import PostIcons from "../components/PostIcons"
 // import Img from "gatsby-image"
-import Layout from "../components/layout"
+import LayoutMain from '../components/LayoutMain';
 import Header from '../components/header';
 import ErrorBoundary from '../components/ErrorBoundary';
 import AdSense from 'react-adsense';
@@ -76,18 +76,14 @@ class PostTemplate extends Component {
     const entryDate = new Date(post.date);
 
     
-    return (
-        <Layout pageType="post">
-          <div className="post-wrapper">
+    return (<LayoutMain pageType="post"><div className="post-wrapper">
               <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
               <div className="post-timestamp">
                 <span>📅</span>
                 <time className="entry-date" dateTime={post.date}>{entryDate.toLocaleString('en-us', { month: 'long' , day: 'numeric', year: 'numeric'})}</time>
               </div>
               <div id="post-content" dangerouslySetInnerHTML={{ __html: post.content }} />
-            </div>
-        </Layout>
-    )
+            </div></LayoutMain>)
   }
 }
 

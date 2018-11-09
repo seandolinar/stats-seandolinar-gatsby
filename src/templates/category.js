@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 
-import Layout from '../components/layout';
+import LayoutMain from '../components/LayoutMain';
 import PostThumbnail from '../components/PostThumbnail';
 
 import '../styles/template_category.scss';
@@ -31,9 +31,9 @@ class CategoryTemplate extends Component {
     })
 
     return (
-        <Layout pageType="category">
+        <LayoutMain pageType="category">
            {postsCategory}
-        </Layout>
+        </LayoutMain>
     )
   }
 }

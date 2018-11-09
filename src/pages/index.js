@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'gatsby';
 import AdSense from 'react-adsense';
 
-import Layout from '../components/layout';
+import LayoutMain from '../components/LayoutMain';
 import PostThumbnail from '../components/PostThumbnail';
 
 import '../styles/index.scss';
@@ -24,19 +24,14 @@ const IndexPage = (props) => {
   })
 
 
-  return (
-  <Layout>
-    {/* <Link to="/page-2/">Go to page 2</Link> */} 
-    <div className="grid-wrapper page-index">
+  return (<LayoutMain pageType="index"><div className="grid-wrapper page-index">
       {postItems}
-    </div>
-  </Layout>
-)}
+    </div></LayoutMain>)}
 
 export default IndexPage
 
 
-export const  pageQuery = graphql`
+export const pageQuery = graphql`
 query {
   allWordpressPost {
     edges {

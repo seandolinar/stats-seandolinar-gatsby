@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
@@ -18,10 +18,11 @@ setConfig({ pureSFC: true });
 
 const Layout = ({ children, pageType }) => {
 
+  console.log(pageType)
+
   const [isMenuMobileOpen, setMenuOpen] = useState(false);
 
-  return (
-  <StaticQuery
+  return (<StaticQuery
     query={graphql`
       query SiteTitleQuery {
         site {
@@ -31,51 +32,38 @@ const Layout = ({ children, pageType }) => {
         }
       }
     `}
-    render={data => (
-      <div>
-      <div className="site-header-menu-mobile">
-        <ButtonMenu onClick={() =>  setMenuOpen(!isMenuMobileOpen)} isMenuOpen={isMenuMobileOpen}></ButtonMenu>
-      </div>
-      <div className="site-content-wrapper">
-        <MenuCategory isMenuMobileOpen={isMenuMobileOpen}/>
-        <main
-          className={'site-content ' + pageType}
-        >
-          <div className="ra-column visible-desktop">
-            <ErrorBoundary>
-              <AdSense.Google
-                  client='ca-pub-9996180831969957'
-                  slot='2589150622'
-                  style={{ display: 'block', margin: 'auto' }}
-                  format='auto'
-                  responsive='true'
-              />
-            </ErrorBoundary>  
-          </div>
-          <div className="ra-column visible-desktop right">
-          <ErrorBoundary>
-            <AdSense.Google
-                client='ca-pub-9996180831969957'
-                slot='9693615028'
-                style={{ display: 'block', margin: 'auto' }}
-                format='auto'
-                responsive='true'
-              />
-              </ErrorBoundary>
-          </div>
+    render={data => (<><Helmet
+      title={''}
+      meta={[
+        { name: 'description', content: 'Sample' },
+        { name: 'keywords', content: 'sample, something' },
+        { name: 'google-site-verification', content: '4zzLgNmIbi66VfwfkRprZoo2eebh52ac6wdyqkWl9Nk' }
+      ]}
+    >
+      <html lang="en" />
+      <link href="https://fonts.googleapis.com/css?family=Lato:900" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet" />
+      {/* <link rel="canonical" href="https://stats.seandolinar.com" />  */}
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    </Helmet>
+      <div className="site-wrapper">
+        <Header />
+        <div className="site-header-menu-mobile">
+          <ButtonMenu onClick={() => setMenuOpen(!isMenuMobileOpen)} isMenuOpen={isMenuMobileOpen}></ButtonMenu>
+        </div>
+        <div className="site-content-wrapper">
+          <MenuCategory isMenuMobileOpen={isMenuMobileOpen} />
           {children}
-        </main>
         </div>
         <footer>
           <div className="footer-content">
             @seandolinar
           </div>
         </footer>
-        </div>
+      </div></>
     )}
-    
-  />
-);}
+  />);
+}
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
