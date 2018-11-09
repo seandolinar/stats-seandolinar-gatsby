@@ -21,6 +21,13 @@
         transition: 350ms width ease-in-out;
         // width: 100%;
         white-space: pre;
+        -moz-hyphens:none;
+        -ms-hyphens:none;
+        -webkit-hyphens: none;
+        word-wrap: normal;
+        // hyphens:none;
+        word-break: keep-all;
+        text-overflow: clip;
         flex: 0 0 auto;
         margin: initial;
         display: block;
