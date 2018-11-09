@@ -17,7 +17,6 @@ const MenuCategory = (props) => <StaticQuery
         }
     }`}
     render={data => {
-        console.log(props)
         const menuItems = data.allWordpressCategory.edges.filter(({node},i) => {
 
             return ['stats', 'analytics', 'twitter', 'coding', 'javascript-coding', 'd3'].includes(node.slug)
@@ -29,7 +28,7 @@ const MenuCategory = (props) => <StaticQuery
         
 
         return (
-            <nav className="menu-category">{menuItems}</nav>
+            <nav className={'menu-category' + (props.isMenuMobileOpen ? ' is-open' : '')}>{menuItems}</nav>
         )
     }}/>
 

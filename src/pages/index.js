@@ -52,22 +52,3 @@ query {
   }
 }`
 
-
-
-// featured_media {
-//   guid
-// }
-
-
-
-// <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-// <!-- Front page - 1 (stats.seandolinar.com) -->
-// <ins class="adsbygoogle"
-//      style="display:block"
-//      data-ad-client="ca-pub-9996180831969957"
-//      data-ad-slot="8635684224"
-//      data-ad-format="auto"
-//      data-full-width-responsive="true"></ins>
-// <script>
-// (adsbygoogle = window.adsbygoogle || []).push({});
-// </script>

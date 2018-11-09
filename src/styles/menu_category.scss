@@ -17,7 +17,17 @@
     // margin: initial;
 
     @media (max-width: 640px) {
-        
+        width: 0;
+        transition: 350ms width ease-in-out;
+        // width: 100%;
+        white-space: pre;
+        flex: 0 0 auto;
+        margin: initial;
+        display: block;
+
+        &.is-open {
+            width: 100%;
+        }
     }
 
 

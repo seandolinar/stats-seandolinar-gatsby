@@ -12,9 +12,9 @@
     "gatsby-plugin-twitter": "^2.0.6",
     "gatsby-source-wordpress": "^3.0.7",
     "node-sass": "^4.9.4",
-    "react": "^16.5.1",
+    "react": "^16.7.0-alpha.0",
     "react-adsense": "0.0.6",
-    "react-dom": "^16.5.1",
+    "react-dom": "^16.7.0-alpha.0",
     "react-helmet": "^5.2.0"
   },
   "keywords": [

@@ -15,10 +15,20 @@ const Header = ({ siteTitle }) => {
     zIndex: 1
   }}
 >
-    <img 
+    {/* <img 
       src="https://stats.seandolinar.com/wp-content/uploads/2014/03/cropped-site_graphic_dark.png" 
       style={{width: '100%'}}
-    />
+    /> */}
+    <div className="header-logo-animated">
+      <div className="header-logo-animated-bar"></div>
+      <div className="header-logo-animated-bar">
+        STATS
+      </div>
+      <div className="header-logo-animated-bar">
+        <span>[dot]</span>SEANDOLINAR<span>[dot][com]</span>
+      </div>
+      <div className="header-logo-animated-bar"></div>
+    </div>
     </Link>
     {/* <div className="ra-menu visible-desktop">
         <AdSense.Google

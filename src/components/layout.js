@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import { StaticQuery, graphql } from 'gatsby';
@@ -7,26 +7,19 @@ import ErrorBoundary from './ErrorBoundary';
 
 import Header from './header';
 import MenuCategory from './MenuCategory';
+import ButtonMenu from './ButtonMenu';
+
 import './layout.css';
 import '../styles/layout.scss';
 
+import { setConfig } from 'react-hot-loader';
+
+setConfig({ pureSFC: true });
+
 const Layout = ({ children, pageType }) => {
 
-  const isDisplayAd = window.innerWidth > 900
-
-  // let adLeft = null;
-  // try {
-    // adLeft = <AdSense.Google
-    //     client='ca-pub-9996180831969957'
-    //     slot='2589150622'
-    //     style={{ display: 'block', margin: 'auto' }}
-    //     format='auto'
-    //     responsive='true'
-    //   />
-  // }
-  // catch(e) {
-
-  // }
+  const [isMenuMobileOpen, setMenuOpen] = useState(false);
+ console.log(isMenuMobileOpen)
 
   return (
   <StaticQuery
@@ -50,20 +43,16 @@ const Layout = ({ children, pageType }) => {
           ]}
         >
           <html lang="en" />
+          <link href="https://fonts.googleapis.com/css?family=Lato:900" rel="stylesheet" />
           <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet" />
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-
-          {/* <script>{`
-                (adsbygoogle = window.adsbygoogle || []).push({
-                  google_ad_client: "ca-pub-9996180831969957",
-                  enable_page_level_ads: true
-            });
-          `}
-          </script> */}
         </Helmet>
-        <Header siteTitle={data.site.siteMetadata.title} />
+      <Header siteTitle={data.site.siteMetadata.title} />
+      <div className="site-header-menu-mobile">
+        <ButtonMenu onClick={() =>  setMenuOpen(!isMenuMobileOpen)} isMenuOpen={isMenuMobileOpen}/>
+      </div>
       <div className="site-content-wrapper">
-        <MenuCategory />
+        <MenuCategory isMenuMobileOpen={isMenuMobileOpen}/>
         <main
           className={'site-content ' + pageType}
           style={{
@@ -89,7 +78,7 @@ const Layout = ({ children, pageType }) => {
             <AdSense.Google
                 client='ca-pub-9996180831969957'
                 slot='9693615028'
-                style={{ display: (isDisplayAd ? 'block' : 'none'), margin: 'auto' }}
+                style={{ display: 'block', margin: 'auto' }}
                 format='auto'
                 responsive='true'
               />

@@ -1,0 +1,62 @@
+.button-menu {
+    background-color: transparent;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+
+    // height: 90px;
+    // padding: .6em;
+  
+    // & > div {
+    //     height: .4em;
+    //     width: 2em;
+    //     background-color: purple;
+    //     margin: .4em 0;
+    // }
+
+    & > div {
+        position: absolute;
+        height: .3em;
+        width: 2.2em;
+        background-color: #fff;
+        transition: transform 200ms cubic-bezier(0.455, 0.03, 0.515, 0.955), opacity 100ms cubic-bezier(0.455, 0.03, 0.515, 0.955);
+        opacity: 1;
+        transform: rotate(0);
+        margin-bottom: .3em;
+
+
+        &:first-child {
+            position: relative;
+            margin-bottom: .4em;
+
+        }
+        &:last-child {
+            position: relative;
+            top: .7em;
+        }
+        
+    }
+
+    &.is-open {
+
+        & > div {
+ 
+                &:first-child, &:last-child {
+                    opacity: 0;
+                }
+            
+                &:nth-child(2) {
+                    // transform-origin: bottom left;
+                    transform-origin: 50% 50%;
+                    transform: rotate(45deg);
+                    
+                }
+                &:nth-child(3) {
+                    transform-origin: 50% 50%;
+                    transform: rotate(-45deg);
+                    
+                }
+            
+        }
+    }
+}
