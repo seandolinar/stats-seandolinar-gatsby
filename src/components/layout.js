@@ -52,11 +52,11 @@ const Layout = ({ children, pageType }) => {
 
           <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46773652-1"></script>
           <script>
-            window.dataLayer = window.dataLayer || [];
+            { `window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
 
-            gtag('config', 'UA-46773652-1');
+            gtag('config', 'UA-46773652-1');` }
           </script>
           <meta property="og:site_name" content="stats.seandolinar.com" />
     </Helmet>
