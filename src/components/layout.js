@@ -49,6 +49,15 @@ const Layout = ({ children, pageType }) => {
           <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet" />
           {/* <link rel="canonical" href="https://stats.seandolinar.com" />  */}
           <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+          <script async src="https://www.googletagmanager.com/gtag/js?id=UA-46773652-1"></script>
+          <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-46773652-1');
+          </script>
           <meta property="og:site_name" content="stats.seandolinar.com" />
     </Helmet>
     <Header />
