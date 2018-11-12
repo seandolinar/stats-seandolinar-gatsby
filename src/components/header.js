@@ -6,7 +6,7 @@ import AdSense from 'react-adsense';
 
 const Header = ({ siteTitle }) => {
   return (
-  <><Link
+  <div id="site-header-wrapper" className="site-header-wrapper"><Link
   className="site-header"
   to="/"
   style={{
@@ -15,10 +15,6 @@ const Header = ({ siteTitle }) => {
     zIndex: 1
   }}
 >
-    {/* <img 
-      src="https://stats.seandolinar.com/wp-content/uploads/2014/03/cropped-site_graphic_dark.png" 
-      style={{width: '100%'}}
-    /> */}
     <div className="header-logo-animated">
       <div className="header-logo-animated-bar"></div>
       <div className="header-logo-animated-bar">
@@ -30,16 +26,7 @@ const Header = ({ siteTitle }) => {
       <div className="header-logo-animated-bar"></div>
     </div>
     </Link>
-    {/* <div className="ra-menu visible-desktop">
-        <AdSense.Google
-          client='ca-pub-9996180831969957'
-          slot='8635684224'
-          style={{ display: 'block', margin: 'auto' }}
-          format='auto'
-          responsive='true'
-        />
-    </div> */}
-</>
+</div>
 )
 }
 

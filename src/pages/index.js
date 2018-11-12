@@ -2,13 +2,14 @@ import React from 'react';
 import { Link } from 'gatsby';
 import AdSense from 'react-adsense';
 
-import LayoutMain from '../components/LayoutMain';
+import Layout from '../components/layout';
 import PostThumbnail from '../components/PostThumbnail';
 
 import Helmet from 'react-helmet';
 
 
 import '../styles/index.scss';
+// import Layout from '../components/layout';
 
 const IndexPage = (props) => {
 
@@ -27,13 +28,14 @@ const IndexPage = (props) => {
   })
 
 
-  return (<LayoutMain pageType="index">
+  return (<Layout>
   <Helmet>
     <title>stats.seandolinar.com</title>
   </Helmet>
   <div className="grid-wrapper page-index">
       {postItems}
-    </div></LayoutMain>)}
+    </div></Layout>)
+}
 
 export default IndexPage
 

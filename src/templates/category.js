@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { graphql } from 'gatsby';
 
-import LayoutMain from '../components/LayoutMain';
+import Layout from '../components/Layout';
 import PostThumbnail from '../components/PostThumbnail';
 
 import Helmet from 'react-helmet';
@@ -36,13 +36,12 @@ class CategoryTemplate extends Component {
         </React.Fragment>;
     })
 
-    return (
-        <LayoutMain pageType="category">
+    return (<Layout pageType="category">
             <Helmet>
                 <title>{name} – stats.seandolinar.com</title>
             </Helmet>
            {postsCategory}
-        </LayoutMain>
+           </Layout>
     )
   }
 }

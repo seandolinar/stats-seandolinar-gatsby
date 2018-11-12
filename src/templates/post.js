@@ -17,6 +17,7 @@ import Helmet from 'react-helmet';
 
 import '../styles/post.scss';
 import '../styles/crayon.css';
+import Layout from "../components/layout";
 
 class PostTemplate extends Component {
 
@@ -86,11 +87,8 @@ class PostTemplate extends Component {
     metaTags = post.categories ?  metaTags.concat(post.categories.filter(d => d.wordpress_id !== 1)) : metaTags
 
     metaTags = metaTags.map(d => 	<meta key={d.name} property="article:tag" content={d.name} />)
-
-
-    console.log(metaTags)
     
-    return (<LayoutMain pageType="post"><div className="post-wrapper">
+    return (<Layout pageType="post"><div className="post-wrapper">
               <Helmet>
                 <title>{post.title} – {site.siteMetadata.title}</title>
                 <meta property="og:type" content="article" />
@@ -108,7 +106,7 @@ class PostTemplate extends Component {
                 <time className="entry-date" dateTime={post.date}>{entryDate.toLocaleString('en-us', { month: 'long' , day: 'numeric', year: 'numeric'})}</time>
               </div>
               <div id="post-content" dangerouslySetInnerHTML={{ __html: post.content }} />
-            </div></LayoutMain>)
+            </div></Layout>)
   }
 }
 
