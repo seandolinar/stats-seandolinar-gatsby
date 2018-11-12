@@ -21,6 +21,9 @@
         grid-auto-rows: minmax(100px, auto);
 
         @media (max-width: 640px) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        @media (max-width: 430px) {
             grid-template: initial;
         }
     }
