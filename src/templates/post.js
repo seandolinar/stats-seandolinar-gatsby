@@ -9,6 +9,9 @@ import Header from '../components/header';
 import ErrorBoundary from '../components/ErrorBoundary';
 import AdSense from 'react-adsense';
 
+import Helmet from 'react-helmet';
+
+
 
 // import { rhythm } from "../utils/typography"
 
@@ -18,10 +21,8 @@ import '../styles/crayon.css';
 class PostTemplate extends Component {
 
   componentDidMount() {
-      console.log(document.getElementById('post-content').children)
 
     const adDOM = document.createElement('div')
-    // adDOM
     adDOM.id = 'ra-wrapper'
 
     const adReact = (
@@ -73,10 +74,34 @@ class PostTemplate extends Component {
   render() {
 
     const post = this.props.data.wordpressPost;
+    const site = this.props.data.site;
     const entryDate = new Date(post.date);
 
+    const featuredMedia = !!post.featured_media && post.featured_media.source_url
+
+    let metaTags = 	(!!post.tags && post.tags) || []
+    
+    // metaTags = !!post.categories && post.categories.filter(d => d.wordpress_id !== 1)
+  
+    metaTags = post.categories ?  metaTags.concat(post.categories.filter(d => d.wordpress_id !== 1)) : metaTags
+
+    metaTags = metaTags.map(d => 	<meta key={d.name} property="article:tag" content={d.name} />)
+
+
+    console.log(metaTags)
     
     return (<LayoutMain pageType="post"><div className="post-wrapper">
+              <Helmet>
+                <title>{post.title} – {site.siteMetadata.title}</title>
+                <meta property="og:type" content="article" />
+                <meta property="og:title" content={post.title}/>
+                <meta property="og:url" content={'https://stats.seandolinar.com/' + post.slug}  />
+                <meta property="article:published_time" content={post.date} />
+              	<meta property="article:modified_time" content={post.modified}/>
+                {featuredMedia && <meta property="og:image" content={featuredMedia} />}
+                {metaTags}
+                <meta name="twitter:card" content="summary" />
+              </Helmet>
               <h1 dangerouslySetInnerHTML={{ __html: post.title }} />
               <div className="post-timestamp">
                 <span>📅</span>
@@ -99,7 +124,19 @@ export const pageQuery = graphql`
     wordpressPost(id: { eq: $id }) {
       title,
       content,
-      date
+      date,
+      modified,
+      slug,
+      featured_media {
+        source_url
+      },
+      tags {
+        name
+      },
+      categories {
+        name,
+        wordpress_id
+      }
     }
     site {
       siteMetadata {

@@ -148,10 +148,11 @@ exports.createPages = ({ graphql, actions }) => {
             component: slash(postTemplate),
             context: {
               id: edge.node.id,
-              
+              name: edge.node.name
             },
-          })
+          })   
         })
+
         resolve()
       })
     })

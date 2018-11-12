@@ -5,6 +5,9 @@ import AdSense from 'react-adsense';
 import LayoutMain from '../components/LayoutMain';
 import PostThumbnail from '../components/PostThumbnail';
 
+import Helmet from 'react-helmet';
+
+
 import '../styles/index.scss';
 
 const IndexPage = (props) => {
@@ -24,7 +27,11 @@ const IndexPage = (props) => {
   })
 
 
-  return (<LayoutMain pageType="index"><div className="grid-wrapper page-index">
+  return (<LayoutMain pageType="index">
+  <Helmet>
+    <title>stats.seandolinar.com</title>
+  </Helmet>
+  <div className="grid-wrapper page-index">
       {postItems}
     </div></LayoutMain>)}
 

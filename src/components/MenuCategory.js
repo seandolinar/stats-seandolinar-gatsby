@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, StaticQuery, NavLink } from 'gatsby';
+import { Link, StaticQuery } from 'gatsby';
 
 import '../styles/menu_category.scss';
 
@@ -17,12 +17,17 @@ const MenuCategory = (props) => <StaticQuery
         }
     }`}
     render={data => {
+
+        const arrCategories = ['stats', 'analytics', 'twitter', 'coding', 'javascript-coding', 'd3', 'all-articles']
+
         const menuItems = data.allWordpressCategory.edges.filter(({node},i) => {
 
-            return ['stats', 'analytics', 'twitter', 'coding', 'javascript-coding', 'd3'].includes(node.slug)
-        }).map(({node}) => {
+            return arrCategories.includes(node.slug)
+        })
+        .sort(({node: nodeA}, {node: nodeB}) => arrCategories.indexOf(nodeA.slug) - arrCategories.indexOf(nodeB.slug))
+        .map(({node}) => {
             
-            return <Link to={'/category/' + node.slug} activeClassName="isActive">{node.name}</Link>
+            return <Link to={'/category/' + node.slug} activeClassName="isActive" key={node.slug}>{node.name}</Link>
         })
 
         

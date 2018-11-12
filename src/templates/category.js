@@ -4,12 +4,15 @@ import { graphql } from 'gatsby';
 import LayoutMain from '../components/LayoutMain';
 import PostThumbnail from '../components/PostThumbnail';
 
+import Helmet from 'react-helmet';
+
+
 import '../styles/template_category.scss';
 
 
 class CategoryTemplate extends Component {
   render() {
-    const {data: {allWordpressPost}, pageContext: {id}} = this.props;
+    const {data: {allWordpressPost}, pageContext: {id, name}} = this.props;
 
     const postsCategory = allWordpressPost.edges.filter(({node}) => {
       if (!node.featured_media) {
@@ -23,15 +26,21 @@ class CategoryTemplate extends Component {
       return false;
         
     }).map(({node: {title, slug, featured_media, excerpt}}) => {
-      return <><PostThumbnail 
-      title={title} 
-      slug={slug} 
-      imgUrl={featured_media.source_url} 
-      /><div className="category-item-copy" dangerouslySetInnerHTML={{ __html: excerpt }}></div></>;
+      return <React.Fragment key={slug}>
+      <PostThumbnail 
+        title={title} 
+        slug={slug} 
+        imgUrl={featured_media.source_url} 
+        />
+          <div className="category-item-copy" dangerouslySetInnerHTML={{ __html: excerpt }}></div>
+        </React.Fragment>;
     })
 
     return (
         <LayoutMain pageType="category">
+            <Helmet>
+                <title>{name} – stats.seandolinar.com</title>
+            </Helmet>
            {postsCategory}
         </LayoutMain>
     )

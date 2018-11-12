@@ -80,7 +80,7 @@ module.exports = {
           replacementUrl: "https://stats.seandolinar.com",
         },
         // Set how many simultaneous requests are sent at once.
-        concurrentRequests: 100,
+        concurrentRequests: 1000,
         // Set WP REST API routes whitelists
         // and blacklists using glob patterns.
         // Defaults to whitelist the routes shown

@@ -6,8 +6,8 @@ import AdSense from 'react-adsense';
 import ErrorBoundary from './ErrorBoundary';
 
 import Header from './header';
-import MenuCategory from './MenuCategory';
-import ButtonMenu from './ButtonMenu';
+// import MenuCategory from './MenuCategory';
+// import ButtonMenu from './ButtonMenu';
 
 import './layout.css';
 import '../styles/layout.scss';
@@ -18,51 +18,45 @@ setConfig({ pureSFC: true });
 
 const Layout = ({ children, pageType }) => {
 
-  console.log(pageType)
+  // return (<StaticQuery
+  //   query={graphql`
+  //     query SiteTitleQuery {
+  //       site {
+  //         siteMetadata {
+  //           title
+  //         }
+  //       }
+  //     }
+  //   `}
+  //   render={data => ();
+  //  )}
+  // />
 
-  const [isMenuMobileOpen, setMenuOpen] = useState(false);
-
-  return (<StaticQuery
-    query={graphql`
-      query SiteTitleQuery {
-        site {
-          siteMetadata {
-            title
-          }
-        }
-      }
-    `}
-    render={data => (<><Helmet
-      title={''}
+  return <><Helmet
+      title="stats.seandolinar.com"
       meta={[
-        { name: 'description', content: 'Sample' },
-        { name: 'keywords', content: 'sample, something' },
         { name: 'google-site-verification', content: '4zzLgNmIbi66VfwfkRprZoo2eebh52ac6wdyqkWl9Nk' }
       ]}
     >
       <html lang="en" />
+      <meta charset="UTF-8" />
+	    <meta name="viewport" content="width=device-width" />
       <link href="https://fonts.googleapis.com/css?family=Lato:900" rel="stylesheet" />
       <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet" />
       {/* <link rel="canonical" href="https://stats.seandolinar.com" />  */}
       <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <meta property="og:site_name" content="stats.seandolinar.com" />
     </Helmet>
       <div className="site-wrapper">
         <Header />
-        <div className="site-header-menu-mobile">
-          <ButtonMenu onClick={() => setMenuOpen(!isMenuMobileOpen)} isMenuOpen={isMenuMobileOpen}></ButtonMenu>
-        </div>
-        <div className="site-content-wrapper">
-          <MenuCategory isMenuMobileOpen={isMenuMobileOpen} />
-          {children}
-        </div>
+        {children}
         <footer>
           <div className="footer-content">
             @seandolinar
           </div>
         </footer>
       </div></>
-    )}
-  />);
+   
 }
 
 Layout.propTypes = {
