@@ -36,6 +36,21 @@ const Layout = ({ children, pageType }) => {
 
 
   return <div className="site-wrapper">
+    <Helmet
+          title="stats.seandolinar.com"
+          meta={[
+              { name: 'google-site-verification', content: '4zzLgNmIbi66VfwfkRprZoo2eebh52ac6wdyqkWl9Nk' }
+          ]}
+      >
+          <html lang="en" />
+          <meta charset="UTF-8" />
+          <meta name="viewport" content="width=device-width" />
+          <link href="https://fonts.googleapis.com/css?family=Lato:900" rel="stylesheet" />
+          <link href="https://fonts.googleapis.com/css?family=Titillium+Web" rel="stylesheet" />
+          {/* <link rel="canonical" href="https://stats.seandolinar.com" />  */}
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <meta property="og:site_name" content="stats.seandolinar.com" />
+    </Helmet>
     <Header />
     <div className="site-header-menu-mobile">
       <ButtonMenu onClick={() => setMenuOpen(!isMenuMobileOpen)} isMenuOpen={isMenuMobileOpen}></ButtonMenu>
