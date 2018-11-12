@@ -4,7 +4,7 @@ import { graphql } from "gatsby"
 import PropTypes from "prop-types"
 // import PostIcons from "../components/PostIcons"
 // import Img from "gatsby-image"
-import LayoutMain from '../components/LayoutMain';
+// import LayoutMain from '../components/LayoutMain';
 import Header from '../components/header';
 import ErrorBoundary from '../components/ErrorBoundary';
 import AdSense from 'react-adsense';
