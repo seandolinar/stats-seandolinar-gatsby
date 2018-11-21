@@ -52,7 +52,7 @@ module.exports = {
          * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
          * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
          */
-        baseUrl: "www.seandolinar.com/analytics",
+        baseUrl: "analytics.seandolinar.com",
         // baseUrl: "www.seandolinar.com/test",
         // The protocol. This can be http or https.
         protocol: "https",
