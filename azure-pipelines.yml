@@ -17,5 +17,5 @@ steps:
 
 - script: |
     npm install
-    gastby build
+    gatsby build
   displayName: 'npm install and build'
