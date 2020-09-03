@@ -11,10 +11,6 @@ import AdSense from 'react-adsense';
 
 import Helmet from 'react-helmet';
 
-
-
-// import { rhythm } from "../utils/typography"
-
 import '../styles/post.scss';
 import '../styles/crayon.css';
 import Layout from "../components/layout";
