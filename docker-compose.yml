@@ -6,6 +6,7 @@ volumes:
 services:
   gatsby:
     container_name: gatsby
+    # this uses the docker container image from the current directory
     build:
       context: .
     user: 'node'
@@ -14,8 +15,8 @@ services:
       - NODE_ENV=development
     volumes:
       - ./:/home/node/app
-      # mount empty node_modules exclude the node_modules on host system from mounting into the container
       - node_modules:/home/node/app/node_modules
     ports:
       - '8000:8000'
-    command: 'npm run develop-docker'
+    command: npm run develop-docker
+        
